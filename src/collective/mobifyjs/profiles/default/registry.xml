@@ -1,10 +1,3 @@
 <registry>
-    <records interface="collective.mobifyjs.settings.ISettings">
-
-        <!-- Set default values -->
-        <value key="mobify_library_url">//cdn.mobify.com/mobifyjs/build/mobify-2.0.5.min.js</value>
-
-        <!-- Leave to empty string -->
-        <value key="mobify_resize_backend"></value>
-    </records>
+    <records interface="collective.mobifyjs.settings.ISettings"/>
 </registry>

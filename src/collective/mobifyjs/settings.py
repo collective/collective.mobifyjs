@@ -20,7 +20,8 @@ class ISettings(form.Schema):
     """ Define settings data structure """
 
     mobify_library_url = schema.TextLine(
-        title=_(u'Mobify.js library URL')
+        title=_(u'Mobify.js library URL'),
+        default=u'//cdn.mobify.com/mobifyjs/build/mobify-2.0.5.min.js'
     )
 
     mobify_resize_backend = schema.TextLine(

@@ -6,6 +6,7 @@
 
 # Zope imports
 from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
 from zope.component import getUtility, ComponentLookupError
 
 from zope.interface import Interface
@@ -27,6 +28,10 @@ class MobifyConfigViewlet(grok.Viewlet):
     """ A viewlet which will include some custom code in <head> if the condition is met """
 
     grok.viewletmanager(IHtmlHead)
+
+    def available(self):
+        pq = getToolByName(self.context, 'portal_quickinstaller')
+        return pq.isProductInstalled('collective.mobifyjs')
 
     def get_settings(self):
         """

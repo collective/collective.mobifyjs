@@ -1,4 +1,4 @@
-<html tal:omit-tag="">
+<html tal:omit-tag="" tal:condition="viewlet/available">
 <head tal:omit-tag="" tal:define="settings viewlet/get_settings">
     <meta name="mobify:resize_url" tal:attributes="content settings/mobify_library_url">
     <meta name="mobify:resize_backend" tal:attributes="content settings/mobify_resize_backend">
