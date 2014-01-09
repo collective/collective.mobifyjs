@@ -1,0 +1,33 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:grok="http://namespaces.zope.org/grok"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="collective.mobifyjs">
+
+  <include package="five.grok" />
+
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <!-- Grok the package to initialise schema interfaces and content classes -->
+  <grok:grok package="." />
+
+  <includeDependencies package="." />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Mobify.js responsive images"
+      directory="profiles/default"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <!-- -*- extra stuff goes here -*- -->
+  <browser:resourceDirectory
+    name="collective.mobifyjs"
+    directory="static"
+    />
+
+</configure>
