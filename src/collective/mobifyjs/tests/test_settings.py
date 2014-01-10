@@ -6,12 +6,10 @@ from plone.app.testing import login
 from plone.app.testing import SITE_OWNER_NAME
 from plone.registry import Registry
 
-from collective.mobifyjs.settings import ISettings, SettingsView
+from collective.mobifyjs.settings import ISettings, SettingsView, RESIZE_URL
 
 from collective.mobifyjs.testing import \
     COLLECTIVE_MOBIFYJS_INTEGRATION_TESTING
-
-DEFAULT_BACKEND_URL = '//cdn.mobify.com/mobifyjs/build/mobify-2.0.5.min.js'
 
 class TestSettings(unittest.TestCase):
 
@@ -29,7 +27,7 @@ class TestSettings(unittest.TestCase):
     def test_registry(self):
         settings = self.registry.forInterface(ISettings)
 
-        self.assertEquals(settings.mobify_library_url, DEFAULT_BACKEND_URL)
+        self.assertEquals(settings.mobify_library_url, RESIZE_URL)
         self.assertEquals(settings.mobify_resize_backend, None)
 
     def test_controlpanel_view(self):
