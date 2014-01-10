@@ -23,7 +23,7 @@ class ISettings(form.Schema):
 
     mobify_library_url = schema.TextLine(
         title=_(u'Mobify.js library URL'),
-        description=_(u'The URL to the Mobify.js library, defaults to Mobify.js CDN.')
+        description=_(u'The URL to the Mobify.js library, defaults to Mobify.js CDN.'),
         default=u'//cdn.mobify.com/mobifyjs/build/mobify-2.0.5.min.js'
     )
 

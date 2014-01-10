@@ -1,0 +1,27 @@
+---
+language: python
+python: '2.7'
+install:
+- mkdir -p buildout-cache/downloads
+- python bootstrap.py -c travis.cfg
+- bin/buildout -N -t 3 -c travis.cfg
+- curl -O http://saucelabs.com/downloads/Sauce-Connect-latest.zip
+- unzip Sauce-Connect-latest.zip
+- java -jar Sauce-Connect.jar $SAUCE_USERNAME $SAUCE_ACCESS_KEY -i $TRAVIS_JOB_ID -f CONNECTED &
+- JAVA_PID=$!
+- bash -c "while [ ! -f CONNECTED ]; do sleep 2; done"
+script: bin/test
+after_script:
+- kill $JAVA_PID
+env:
+  matrix:
+    - PLONE_VERSION=4.0
+    - PLONE_VERSION=4.1
+    - PLONE_VERSION=4.2
+    - PLONE_VERSION=4.3  
+  global:
+  - secure: WpLuj+Qd5E4gzh6dzmJ2qpkhR30ss6XLZunrUi3Az+iQiDnYYjPuhDC0Do/rK6d+YRnN5vYNW+A6HWVaY0dQiXU1BG2gd560dOuRbAnzCL/zBQaisuHDJz3s7uWjjr2pR2ptkOtRbaLycwGlqN/Ev+NSkl2t8WjC9SjzJOgtCQ8=
+  - secure: GzUJ98TALth5yiPbkhCMSkkcjsq8hgcso9yogCfHvswPQhC7CSg2hLl4UgCaJIgjpNFvN78ajOvHgjBifFtFqfbkEQBqjrCxGdHPGRg3+AYMsJaWwz2EeY5WlLP8fm/DobFR2pTL941UldVqDB4DvC7Qhh4oLUTqYm6A3bJ/dU4=
+  - ROBOT_BUILD_NUMBER=travis-$TRAVIS_BUILD_NUMBER
+  - ROBOT_REMOTE_URL=http://$SAUCE_USERNAME:$SAUCE_ACCESS_KEY@ondemand.saucelabs.com:80/wd/hub
+  - ROBOT_DESIRED_CAPABILITIES=tunnel-identifier:$TRAVIS_JOB_ID
