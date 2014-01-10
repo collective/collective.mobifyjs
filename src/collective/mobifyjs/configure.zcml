@@ -18,7 +18,7 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="Mobify.js responsive images"
+      title="Collective Mobify.js"
       directory="profiles/default"
       description=""
       provides="Products.GenericSetup.interfaces.EXTENSION"
@@ -26,8 +26,8 @@
 
   <!-- -*- extra stuff goes here -*- -->
   <browser:resourceDirectory
-    name="collective.mobifyjs"
-    directory="static"
-    />
+      name="collective.mobifyjs"
+      directory="static"
+      />
 
 </configure>

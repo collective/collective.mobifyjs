@@ -16,16 +16,19 @@ from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
 
 from collective.mobifyjs import _
 
+RESIZE_URL = u'//cdn.mobify.com/mobifyjs/build/mobify-2.0.5.min.js'
+
 class ISettings(form.Schema):
     """ Define settings data structure """
 
     mobify_library_url = schema.TextLine(
         title=_(u'Mobify.js library URL'),
+        description=_(u'The URL to the Mobify.js library, defaults to Mobify.js CDN.')
         default=u'//cdn.mobify.com/mobifyjs/build/mobify-2.0.5.min.js'
     )
 
     mobify_resize_backend = schema.TextLine(
-        title=_(u'Resize backend'),
+        title=_(u'Resize backend URL'),
         description=_(u'Leave empty to use the default Mobify.js resize backend.')
     )
 
