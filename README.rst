@@ -2,10 +2,6 @@
 collective.mobifyjs
 *******************
 
-.. image:: https://secure.travis-ci.org/collective/collective.mobifyjs.png
-    :alt: Travis CI Test Status
-    :target: http://travis-ci.org/collective/collective.mobifyjs
-
 .. image:: https://saucelabs.com/buildstatus/collective_mobifyjs
     :alt: Selenium Test Status
     :target: https://saucelabs.com/u/collective_mobifyjs
