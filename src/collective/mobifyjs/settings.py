@@ -4,7 +4,6 @@
 
 """
 
-
 from zope import schema
 from five import grok
 from Products.CMFCore.interfaces import ISiteRoot

@@ -10,6 +10,9 @@ install:
 - java -jar Sauce-Connect.jar $SAUCE_USERNAME $SAUCE_ACCESS_KEY -i $TRAVIS_JOB_ID -f CONNECTED &
 - JAVA_PID=$!
 - bash -c "while [ ! -f CONNECTED ]; do sleep 2; done"
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
 script: bin/test
 after_script:
 - kill $JAVA_PID

@@ -41,6 +41,7 @@ setup(name='collective.mobifyjs',
       install_requires=[
           'setuptools',
           # -*- Extra requirements: -*-
+          'Products.CMFPlone>=4.0',
           'five.grok',
           'plone.app.registry',
           'plone.directives.form',
